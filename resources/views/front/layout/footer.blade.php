@@ -1,86 +1,81 @@
-<!-- Footer -->
+<!-- فوتر -->
 <footer class="footer">
     <div class="container">
-        <!-- Outer-Footer -->
+        <!-- بخش بیرونی فوتر -->
         <div class="outer-footer-wrapper u-s-p-y-80">
             <h6>
-                For special offers and other discount information
+                برای پیشنهادات ویژه و اطلاعات تخفیف
             </h6>
             <h1>
-                Subscribe to our Newsletter
+                اشتراک در خبرنامه ما
             </h1>
             <p>
-                Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.
+                با عضویت در لیست ایمیل، از به‌روزرسانی‌های مربوط به تخفیف‌ها، محصولات جدید و کدهای تخفیف باخبر شوید.
             </p>
 
-
-
-            
             <form class="newsletter-form">
-                <label class="sr-only" for="subscriber_email">Enter your Email</label>
-                <input type="text" placeholder="Your Email Address" id="subscriber_email" name="subscriber_email" required> {{-- We'll use the HTML id Global Attribute in jQuery in front/js/custom.js --}} 
-                <button type="button" class="button" onclick="addSubscriber()">SUBMIT</button> {{-- Check the addSubscriber() function in front/js/custom.js. We'll use it in conjunction with the    id="subscriber_email"    of the <input> field --}}
+                <label class="sr-only" for="subscriber_email">ایمیل خود را وارد کنید</label>
+                <input type="text" placeholder="آدرس ایمیل شما" id="subscriber_email" name="subscriber_email" required> {{-- استفاده از id در jQuery در front/js/custom.js --}}
+                <button type="button" class="button" onclick="addSubscriber()">ارسال</button> {{-- بررسی تابع addSubscriber() در front/js/custom.js --}}
             </form>
-
-
-
         </div>
-        <!-- Outer-Footer /- -->
-        <!-- Mid-Footer -->
+        <!-- بخش بیرونی فوتر /- -->
+
+        <!-- بخش میانی فوتر -->
         <div class="mid-footer-wrapper u-s-p-b-80">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="footer-list">
-                        <h6>COMPANY</h6>
+                        <h6>شرکت</h6>
                         <ul>
                             <li>
-                                <a href="{{ url('about-us') }}">About Us</a>
+                                <a href="{{ url('about-us') }}">درباره ما</a>
                             </li>
                             <li>
-                                <a href="{{ url('contact') }}">Contact Us</a>
+                                <a href="{{ url('contact') }}">تماس با ما</a>
                             </li>
                             <li>
-                                <a href="{{ url('faq') }}">FAQ</a>
+                                <a href="{{ url('faq') }}">سؤالات متداول</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="footer-list">
-                        <h6>COLLECTION</h6>
+                        <h6>مجموعه‌ها</h6>
                         <ul>
                             <li>
-                                <a href="{{ url('men') }}">Men Clothing</a>
+                                <a href="{{ url('men') }}">لباس مردانه</a>
                             </li>
                             <li>
-                                <a href="{{ url('women') }}">Women Clothing</a>
+                                <a href="{{ url('women') }}">لباس زنانه</a>
                             </li>
                             <li>
-                                <a href="{{ url('kids') }}">Kids Clothing</a>
+                                <a href="{{ url('kids') }}">لباس بچه‌گانه</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="footer-list">
-                        <h6>ACCOUNT</h6>
+                        <h6>حساب کاربری</h6>
                         <ul>
                             <li>
-                                <a href="{{ url('user/account') }}">My Account</a>
+                                <a href="{{ url('user/account') }}">حساب من</a>
                             </li>
                             <li>
-                                <a href="{{ url('user/orders') }}">My Orders</a>
+                                <a href="{{ url('user/orders') }}">سفارش‌های من</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="footer-list">
-                        <h6>Contact</h6>
+                        <h6>تماس</h6>
                         <ul>
                             <li>
                                 <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                <span>Multi-vendor E-commerce Application</span>
+                                <span>فروشگاه چندفروشنده</span>
                             </li>
                             <li>
                                 <a href="tel:+201255845857">
@@ -100,8 +95,9 @@
                 </div>
             </div>
         </div>
-        <!-- Mid-Footer /- -->
-        <!-- Bottom-Footer -->
+        <!-- بخش میانی فوتر /- -->
+
+        <!-- بخش پایینی فوتر -->
         <div class="bottom-footer-wrapper">
             <div class="social-media-wrapper">
                 <ul class="social-media-list">
@@ -143,10 +139,10 @@
                 </ul>
             </div>
             <p class="copyright-text">Copyright &copy; 2022
-                <a target="_blank" rel="nofollow" href="#">Multi-vendor E-commerce Application</a> | All Right Reserved
+                <a target="_blank" rel="nofollow" href="#">فروشگاه چندفروشنده</a> | کلیه حقوق محفوظ است
             </p>
         </div>
+        <!-- بخش پایینی فوتر /- -->
     </div>
-    <!-- Bottom-Footer /- -->
 </footer>
-<!-- Footer /- -->
+<!-- فوتر /- -->

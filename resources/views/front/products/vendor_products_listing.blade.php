@@ -1,10 +1,7 @@
-{{-- Show all Vendor products --}} {{-- This file is 'iclude'-ed in front/products/vendor_listing.blade.php --}} 
+{{-- نمایش همه محصولات فروشنده --}} {{-- این فایل در front/products/vendor_listing.blade.php 'include' شده است --}} 
 
-
-<!-- Row-of-Product-Container -->
+<!-- ردیف کانتینر محصولات -->
 <div class="row product-container grid-style">
-
-
 
     @foreach ($vendorProducts as $product)
         <div class="product-item col-lg-4 col-md-6 col-sm-6">
@@ -12,27 +9,22 @@
                 <div class="image-container">
                     <a class="item-img-wrapper-link" href="{{ url('product/' . $product['id']) }}">
 
-
-
                         @php
                             $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
                         @endphp
 
-
-                        @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
-                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
-                        @else {{-- show the dummy image --}}
-                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                        @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- اگر تصویر محصول هم در پایگاه داده و هم در فایل‌سیستم موجود باشد --}}
+                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="محصول">
+                        @else {{-- نمایش تصویر پیش‌فرض --}}
+                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="محصول">
                         @endif
-
-
 
                     </a>
                     <div class="item-action-behaviors">
-                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                        <a class="item-mail" href="javascript:void(0)">Mail</a>
-                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">نمایش سریع</a>
+                        <a class="item-mail" href="javascript:void(0)">ارسال ایمیل</a>
+                        <a class="item-addwishlist" href="javascript:void(0)">افزودن به علاقه‌مندی‌ها</a>
+                        <a class="item-addCart" href="javascript:void(0)">افزودن به سبد خرید</a>
                     </div>
                 </div>
                 <div class="item-content">
@@ -56,54 +48,41 @@
                         </div>
                     </div>
 
-
-
-                    {{-- Call the static getDiscountPrice() method in the Product.php Model to determine the final price of a product because a product can have a discount from TWO things: either a `CATEGORY` discount or `PRODUCT` discout     --}}
+                    {{-- محاسبه قیمت با تخفیف در صورت وجود تخفیف --}}
                     @php
                         $getDiscountPrice = \App\Models\Product::getDiscountPrice($product['id']);
                     @endphp
 
-
-                    @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
+                    @if ($getDiscountPrice > 0) {{-- اگر تخفیفی وجود دارد، قیمت قبل و بعد تخفیف را نشان دهید --}}
                         <div class="price-template">
                             <div class="item-new-price">
-                                Rs . {{ $getDiscountPrice }} 
+                                تومان {{ $getDiscountPrice }} 
                             </div>
                             <div class="item-old-price">
-                                Rs . {{ $product['product_price'] }}
+                                تومان {{ $product['product_price'] }}
                             </div>
                         </div>
-                    @else {{-- if there's no discount on the price, show the original price --}}
+                    @else {{-- اگر تخفیفی وجود ندارد، قیمت اصلی را نمایش دهید --}}
                         <div class="price-template">
                             <div class="item-new-price">
-                                Rs . {{ $product['product_price'] }}
+                                تومان {{ $product['product_price'] }}
                             </div>
                         </div>
                     @endif
 
-
-
                 </div>
 
-
-
-                
                 @php
                     $isProductNew = \App\Models\Product::isProductNew($product['id'])
                 @endphp
                 @if ($isProductNew == 'Yes')
                     <div class="tag new">
-                        <span>NEW</span>
+                        <span>جدید</span>
                     </div>
                 @endif
-
-
-                
             </div>
         </div>
     @endforeach
 
-
-
 </div>
-<!-- Row-of-Product-Container /- -->
+<!-- ردیف کانتینر محصولات /- -->

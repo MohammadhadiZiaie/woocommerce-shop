@@ -1,0 +1,77 @@
+body {
+    direction: rtl !important;;
+    text-align: right !important;;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+input, textarea, select, button {
+    direction: rtl !important;
+    text-align: right !important;
+
+}
+@font-face {
+    font-family: 'IranSans';
+    src: url('../fonts/iranSans/woff2/IRANSansWeb\(FaNum\)_Black.woff2') format('woff2'),
+         url('../fonts/iranSans/woff/IRANSansWeb\(FaNum\)_Black.woff') format('woff');
+}
+
+body {
+    font-family: 'IranSans', sans-serif !important;
+}
+/* منوهای ناوبری */
+.navbar {
+    direction: rtl;
+    text-align: right;
+}
+
+/* جابجایی padding و margin */
+.ml-4 {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+}
+
+.ml-12 {
+    margin-left: 0 !important;
+    margin-right: 3rem !important;
+}
+
+.mr-4 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+.mr-12 {
+    margin-right: 0 !important;
+    margin-left: 3rem !important;
+}
+
+/* تنظیم سایدبار و منوها */
+.sidebar {
+    direction: rtl;
+    text-align: right;
+}
+
+/* دکمه‌ها */
+button {
+    text-align: center;
+    direction: rtl;
+}
+
+/* لینک‌ها */
+a {
+    direction: rtl;
+    text-align: right;
+}
+
+/* جدول‌ها */
+table {
+    direction: rtl;
+}
+
+th, td {
+    text-align: right;
+}

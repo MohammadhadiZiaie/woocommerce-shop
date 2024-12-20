@@ -1,5 +1,4 @@
-<!-- Row-of-Product-Container -->
-{{-- <div class="row product-container list-style"> --}}
+<!-- ردیف محصولات -->
 <div class="row product-container grid-style">
 
     @foreach ($categoryProducts as $product)
@@ -7,25 +6,21 @@
             <div class="item">
                 <div class="image-container">
                     <a class="item-img-wrapper-link" href="{{ url('product/' . $product['id']) }}">
-
-
                         @php
                             $product_image_path = 'front/images/product_images/small/' . $product['product_image'];
                         @endphp
 
-                        @if (!empty($product['product_image']) && file_exists($product_image_path)) {{-- if the product image exists in BOTH database table AND filesystem (on server) --}}
-                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
-                        @else {{-- show the dummy image --}}
-                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                        @if (!empty($product['product_image']) && file_exists($product_image_path)) 
+                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="{{ $product['product_name'] }}">
+                        @else
+                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="بدون تصویر">
                         @endif
-
-
                     </a>
                     <div class="item-action-behaviors">
-                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                        <a class="item-mail" href="javascript:void(0)">Mail</a>
-                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">مشاهده سریع</a>
+                        <a class="item-mail" href="javascript:void(0)">ارسال به ایمیل</a>
+                        <a class="item-addwishlist" href="javascript:void(0)">افزودن به علاقه‌مندی‌ها</a>
+                        <a class="item-addCart" href="javascript:void(0)">افزودن به سبد</a>
                     </div>
                 </div>
                 <div class="item-content">
@@ -35,9 +30,6 @@
                                 <a href="shop-v1-root-category.html">{{ $product['product_code'] }}</a>
                             </li>
                             <li class="has-separator">
-
-
-
                                 <a href="listing.html">{{ $product['product_color'] }}</a>
                             </li>
                             <li>
@@ -49,60 +41,43 @@
                         </h6>
                         <div class="item-description">
                             <p>{{ $product['description'] }}</p>
-
-
-
                         </div>
                     </div>
 
-
-
-                    {{-- Call the static getDiscountPrice() method in the Product.php Model to determine the final price of a product because a product can have a discount from TWO things: either a `CATEGORY` discount or `PRODUCT` discout     --}}
                     @php
                         $getDiscountPrice = \App\Models\Product::getDiscountPrice($product['id']);
                     @endphp
 
-
-                    @if ($getDiscountPrice > 0) {{-- If there's a discount on the price, show the price before (the original price) and after (the new price) the discount --}}
+                    @if ($getDiscountPrice > 0)
                         <div class="price-template">
                             <div class="item-new-price">
-                                EGP{{ $getDiscountPrice }}
+                                {{ number_format($getDiscountPrice) }} تومان
                             </div>
                             <div class="item-old-price">
-                                EGP{{ $product['product_price'] }}
+                                {{ number_format($product['product_price']) }} تومان
                             </div>
                         </div>
-                    @else {{-- if there's no discount on the price, show the original price --}}
+                    @else
                         <div class="price-template">
                             <div class="item-new-price">
-                                EGP{{ $product['product_price'] }}
+                                {{ number_format($product['product_price']) }} تومان
                             </div>
                         </div>
                     @endif
-
-
-
                 </div>
 
-
-
-                
                 @php
-                    $isProductNew = \App\Models\Product::isProductNew($product['id'])
+                    $isProductNew = \App\Models\Product::isProductNew($product['id']);
                 @endphp
+
                 @if ($isProductNew == 'Yes')
                     <div class="tag new">
-                        <span>NEW</span>
+                        <span>جدید</span>
                     </div>
                 @endif
-
-
-                
             </div>
         </div>
     @endforeach
 
-
-
 </div>
-<!-- Row-of-Product-Container /- -->
+<!-- ردیف محصولات پایان -->
